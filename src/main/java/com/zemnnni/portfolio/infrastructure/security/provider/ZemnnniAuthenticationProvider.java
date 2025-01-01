@@ -21,6 +21,12 @@ public class ZemnnniAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         ZemnnniAuthenticationToken zemnnniAuthenticationToken = (ZemnnniAuthenticationToken) authentication;
 
+        String loginTypeCode = zemnnniAuthenticationToken.getLoginTypeCode();
+
+        switch (loginTypeCode){
+
+        }
+
         String loginId = (String) zemnnniAuthenticationToken.getPrincipal();
         String password = (String) zemnnniAuthenticationToken.getCredentials();
 

@@ -1,7 +1,7 @@
 package com.zemnnni.portfolio.infrastructure.security.config;
 
-import com.zemnnni.portfolio.infrastructure.security.filter.SignInFilter;
-import com.zemnnni.portfolio.infrastructure.security.filter.SignOutFilter;
+import com.zemnnni.portfolio.infrastructure.security.filter.login.IdPwLoginFilter;
+import com.zemnnni.portfolio.infrastructure.security.filter.logout.SignOutFilter;
 import com.zemnnni.portfolio.infrastructure.utility.mapper.MapperUtil;
 import com.zemnnni.portfolio.infrastructure.utility.request.RequestUtil;
 import org.springframework.context.annotation.Bean;
@@ -53,7 +53,7 @@ public class SecurityConfig {
                 );
         /* LoginFilter 사용 여부 체크 */
         if (securityOptionConfig.getSignInFilter().isEnabled()) {
-            httpSecurity.addFilterBefore(new SignInFilter(securityOptionConfig, requestUtil, mapperUtil), UsernamePasswordAuthenticationFilter.class);
+            httpSecurity.addFilterBefore(new IdPwLoginFilter(securityOptionConfig, requestUtil, mapperUtil), UsernamePasswordAuthenticationFilter.class);
         }
         if (securityOptionConfig.getSignOutFilter().isEnabled()) {
             httpSecurity.addFilterBefore(new SignOutFilter(securityOptionConfig), UsernamePasswordAuthenticationFilter.class);

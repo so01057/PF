@@ -1,10 +1,11 @@
-package com.zemnnni.portfolio.infrastructure.security.filter;
+package com.zemnnni.portfolio.infrastructure.security.filter.login;
 
 import com.zemnnni.portfolio.infrastructure.security.config.SecurityOptionConfig;
 import com.zemnnni.portfolio.infrastructure.security.dto.SignInRequest;
 import com.zemnnni.portfolio.infrastructure.security.token.ZemnnniAuthenticationToken;
 import com.zemnnni.portfolio.infrastructure.utility.mapper.MapperUtil;
 import com.zemnnni.portfolio.infrastructure.utility.request.RequestUtil;
+import com.zemnnni.portfolio.share.enums.LoginTypeCode;
 import com.zemnnni.portfolio.share.enums.RequestMethod;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,12 +20,12 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-public class SignInFilter extends AbstractAuthenticationProcessingFilter {
+public class IdPwLoginFilter extends AbstractAuthenticationProcessingFilter {
 
     private final RequestUtil requestUtil;
     private final MapperUtil mapperUtil;
 
-    public SignInFilter(SecurityOptionConfig securityOptionConfig, RequestUtil requestUtil, MapperUtil mapperUtil) {
+    public IdPwLoginFilter(SecurityOptionConfig securityOptionConfig, RequestUtil requestUtil, MapperUtil mapperUtil) {
         super(new AntPathRequestMatcher(securityOptionConfig.getSignInFilter().getUrl()));
         this.requestUtil = requestUtil;
         this.mapperUtil = mapperUtil;
@@ -42,8 +43,7 @@ public class SignInFilter extends AbstractAuthenticationProcessingFilter {
         String loginId = signInRequest.getLoginId();
         String password = signInRequest.getPassword();
 
-        ZemnnniAuthenticationToken zemnnniAuthenticationToken = new ZemnnniAuthenticationToken(loginId, password);
-
+        ZemnnniAuthenticationToken zemnnniAuthenticationToken = new ZemnnniAuthenticationToken(loginId, password, LoginTypeCode.IDPW.getCodeDescription());
 
         return getAuthenticationManager().authenticate(zemnnniAuthenticationToken);
     }

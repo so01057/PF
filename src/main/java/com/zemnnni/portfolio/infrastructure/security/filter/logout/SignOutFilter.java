@@ -1,4 +1,4 @@
-package com.zemnnni.portfolio.infrastructure.security.filter;
+package com.zemnnni.portfolio.infrastructure.security.filter.logout;
 
 import com.zemnnni.portfolio.infrastructure.security.config.SecurityOptionConfig;
 import jakarta.servlet.FilterChain;

@@ -1,5 +1,6 @@
 package com.zemnnni.portfolio.infrastructure.security.token;
 
+import lombok.Getter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.SpringSecurityCoreVersion;
@@ -11,22 +12,26 @@ public class ZemnnniAuthenticationToken extends AbstractAuthenticationToken {
     @Serial
     private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
 
-    private String loginId;
+    private final String loginId;
     private String password;
+    @Getter
+    private final String loginTypeCode;
 
     // 인증 전 생성자
-    public ZemnnniAuthenticationToken(String loginId, String password) {
+    public ZemnnniAuthenticationToken(String loginId, String password, String loginTypeCode) {
         super(null);
         this.loginId = loginId;
         this.password = password;
+        this.loginTypeCode = loginTypeCode;
         setAuthenticated(false);
     }
 
     // 인증 후 생성자
-    public ZemnnniAuthenticationToken(String loginId, String password, Collection<? extends GrantedAuthority> authorities) {
+    public ZemnnniAuthenticationToken(String loginId, String password, String loginTypeCode, Collection<? extends GrantedAuthority> authorities) {
         super(authorities);
         this.loginId = loginId;
         this.password = password;
+        this.loginTypeCode = loginTypeCode;
         super.setAuthenticated(true);
     }
 
