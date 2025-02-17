@@ -1,0 +1,9 @@
+#Main DataSource
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://124.50.156.10:15432/zemnnni
+    username: zemnnni
+    password: tlswoals1!
+    hikari:
+      maximum-pool-size: 10

@@ -28,8 +28,9 @@ ext {
 	lombokVersion = '1.18.34'
 	jUnitVersion = '5.10.5'
 	postgresqlVersion = '42.7.4'
-	redisVersion = '3.3.5'
 	sessionRedisVersion = '3.3.3'
+	mybatisVersion = '3.0.2'
+	springdocVersion = '2.3.0'
 }
 
 dependencies {
@@ -39,6 +40,9 @@ dependencies {
 	/* Test Program */
 	testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
 	testImplementation "org.junit.jupiter:junit-jupiter-api:${jUnitVersion}"
+
+	/* SpringDoc(Swagger) */
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
 
 
 	/* Lombok */
@@ -51,11 +55,19 @@ dependencies {
 	/* JPA */
 	implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
 
+	/* JDBC */
+	implementation "org.springframework.boot:spring-boot-starter-jdbc"
+
+	/* mybatis */
+	implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisVersion}"
+
+	/* HikariCP */
+
 	/* Spring Security */
 	implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
 
 	/* Redis */
-	implementation "org.springframework.boot:spring-boot-starter-data-redis:${redisVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}"
 	implementation "org.springframework.session:spring-session-data-redis:${sessionRedisVersion}"
 }
 
