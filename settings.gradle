@@ -1,1 +1,5 @@
 rootProject.name = 'portfolio'
+include 'common'
+include 'authentication'
+include 'user'
+

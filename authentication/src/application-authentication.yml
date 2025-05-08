@@ -1,0 +1,11 @@
+authentication:
+  jwt:
+    ## jwt 비밀키
+    ## TODO 관리방안 변경 필요
+    secret-key: secretKey
+    access-token:
+      ## access-token 만료시간 (예: 24시간 = 86400000 밀리초)
+      expiration: 86400000
+    refresh-token:
+      ## refresh-token 만료시간 (예: 24시간 = 86400000 밀리초)
+      expiration: 86400000
