@@ -9,7 +9,68 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    springBootVersion = '3.4.5'
+    lombokVersion = '1.18.34'
+    jUnitVersion = '5.10.5'
+    postgresqlVersion = '42.7.4'
+    sessionRedisVersion = '3.3.3'
+    mybatisVersion = '3.0.2'
+    springdocVersion = '2.3.0'
+    jjwtVersion = '0.11.5'
+    log4j2Version = '2.19.0'
+}
+
 dependencies {
+    /* SpringBoot */
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+
+    /* Log4j2 */
+    implementation "org.springframework.boot:spring-boot-starter-log4j2:${springBootVersion}"
+
+    /* slf4j */
+    implementation 'org.apache.logging.log4j:log4j-slf4j2-impl'
+
+    /* Test Program */
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${jUnitVersion}"
+
+    /* SpringDoc(Swagger) */
+    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
+
+    /* Lombok */
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    /* Database */
+    implementation "org.postgresql:postgresql:${postgresqlVersion}"
+
+    /* JPA */
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+
+    /* JDBC */
+    implementation "org.springframework.boot:spring-boot-starter-jdbc"
+
+    /* mybatis */
+    implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisVersion}"
+
+    /* Spring Security */
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+
+    /* Redis */
+    implementation "org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}"
+    implementation "org.springframework.session:spring-session-data-redis:${sessionRedisVersion}"
+
+    /* JWT */
+    implementation "io.jsonwebtoken:jjwt-api:${jjwtVersion}"
+    implementation "io.jsonwebtoken:jjwt-impl:${jjwtVersion}"
+    implementation "io.jsonwebtoken:jjwt-jackson:${jjwtVersion}"
+}
+
+configurations {
+    configureEach {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
 }
 
 test {

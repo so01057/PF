@@ -1,0 +1,23 @@
+#### MyBatis 설정 ####
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: false                     # snake_case → camelCase 자동 매핑
+    cache-enabled: false                                    # 2차 캐시 사용 여부
+    lazy-loading-enabled: false                             # lazy load 여부
+    aggressive-lazy-loading: false                          # 하나 로딩 시 전부 로딩할지 여부
+    multiple-result-sets-enabled: true                      # 다중 ResultSet 처리
+    use-column-label: false                                 # 컬럼 라벨 사용 여부
+    use-generated-keys: false                               # JDBC generated keys 사용
+    default-executor-type: SIMPLE                           # SIMPLE, REUSE, BATCH
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
+    default-statement-timeout: 10000                     # 쿼리 타임아웃 설정
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+
+#### 메인 Datasource 설정 ####
+spring:
+  datasource:
+    url: jdbc:postgresql://124.50.156.10:15432/zemnnni
+    username: zemnnni
+    password: zemnnni
+    driver-class-name: org.postgresql.Driver

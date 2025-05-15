@@ -1,8 +1,0 @@
-<sql id = "selectAudit">
-    ${tableAlias}.creator_uid
-    ,${tableAlias}.creation_datetime
-    ,${tableAlias}.modifier_uid
-    ,${tableAlias}.modification_datetime
-</sql>
-
-
