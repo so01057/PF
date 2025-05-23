@@ -12,8 +12,8 @@ repositories {
 }
 
 dependencies {
-    implementation project(":common")
-    implementation project(":user")
+    implementation project(':module:common')
+    implementation project(':module:user')
 }
 
 test {
