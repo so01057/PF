@@ -1,0 +1,67 @@
+plugins {
+    id 'java-platform'
+}
+
+javaPlatform {
+    allowDependencies()
+}
+
+ext {
+    springBootVersion = '3.4.5'
+    lombokVersion = '1.18.34'
+    jUnitVersion = '5.10.5'
+    postgresqlVersion = '42.7.4'
+    sessionRedisVersion = '3.3.3'
+    mybatisVersion = '3.0.2'
+    springdocVersion = '2.3.0'
+    jjwtVersion = '0.11.5'
+    log4j2Version = '2.19.0'
+}
+
+dependencies {
+    constraints {
+        /* SpringBoot */
+        api "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+
+        /* Log4j2 */
+        api "org.springframework.boot:spring-boot-starter-log4j2:${springBootVersion}"
+
+        /* slf4j */
+        api 'org.apache.logging.log4j:log4j-slf4j2-impl'
+
+        /* Test Program */
+        api "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+        api "org.junit.jupiter:junit-jupiter-api:${jUnitVersion}"
+
+        /* SpringDoc(Swagger) */
+        api "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
+
+        /* Lombok */
+        api "org.projectlombok:lombok:${lombokVersion}"
+        api "org.projectlombok:lombok:${lombokVersion}"
+
+        /* Database */
+        api "org.postgresql:postgresql:${postgresqlVersion}"
+
+        /* JPA */
+        api "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+
+        /* JDBC */
+        api "org.springframework.boot:spring-boot-starter-jdbc"
+
+        /* mybatis */
+        api "org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisVersion}"
+
+        /* Spring Security */
+        api "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+
+        /* Redis */
+        api "org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}"
+        api "org.springframework.session:spring-session-data-redis:${sessionRedisVersion}"
+
+        /* JWT */
+        api "io.jsonwebtoken:jjwt-api:${jjwtVersion}"
+        api "io.jsonwebtoken:jjwt-impl:${jjwtVersion}"
+        api "io.jsonwebtoken:jjwt-jackson:${jjwtVersion}"
+    }
+}

@@ -16,6 +16,9 @@ import lombok.Setter;
 @Getter
 @Builder
 public class Auth {
+    private String loginId;
+    private String encryptedPassword;
+
     private AuthenticationType authenticationType;
 
     public static Auth fromSignInRequest(SignInRequest signInRequest) {

@@ -26,7 +26,7 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("/sing-in")
+    @PostMapping("/sign-in")
     public ResponseEntity<AuthenticationToken> signIn(@RequestBody SignInRequest signInRequest){
         Auth auth = Auth.fromSignInRequest(signInRequest);
         AuthenticationToken signInResult = authService.signIn(auth);

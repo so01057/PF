@@ -2,4 +2,5 @@ rootProject.name = 'portfolio'
 include 'module:common'
 include 'module:authentication'
 include 'module:user'
+include 'module:dependency-management'
 
