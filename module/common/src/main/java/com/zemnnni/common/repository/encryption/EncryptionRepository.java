@@ -1,7 +1,9 @@
 package com.zemnnni.common.repository.encryption;
 
 import com.zemnnni.common.entity.encryption.Encryption;
+import com.zemnnni.common.model.encryption.response.RSAPrivateKey;
 import com.zemnnni.common.model.encryption.response.RSAPublicKey;
+
 
 /**
  * @작성자 : DATA
@@ -13,4 +15,6 @@ public interface EncryptionRepository {
     void createRsaKey(Encryption encryption);
 
     RSAPublicKey getRsaPublicKey();
+
+    RSAPrivateKey getRsaPrivateKey();
 }

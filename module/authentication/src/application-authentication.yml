@@ -1,3 +1,20 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 79187897128-alat2fiqoolgnobm68ls13qgab3l6hma.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - profile
+              - email
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v1/userinfo
+
 authentication:
   jwt:
     ## jwt 비밀키

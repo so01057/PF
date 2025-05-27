@@ -13,7 +13,6 @@ import lombok.Getter;
 public enum AuthenticationType {
     restAPI("restAPI"),
     OAuth2("OAuth2"),
-    jwt("jwt"),
     saml2("saml2.0"),
     custom("custom"),
     ;

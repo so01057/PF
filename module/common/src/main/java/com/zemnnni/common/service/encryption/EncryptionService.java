@@ -15,6 +15,6 @@ public interface EncryptionService {
 
     RSAPublicKey getRsaPublicKey();
 
-    String getRsaEncryptWithBase64(String plainText);
-    String getRsaDecryptWithBase64(String encryptedText);
+    String getRsaEncryptWithBase64(String plainText) throws Exception;
+    String getRsaDecryptWithBase64(String encryptedText) throws Exception;
 }

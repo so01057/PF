@@ -2,6 +2,7 @@ package com.zemnnni.auth.entity;
 
 import com.zemnnni.auth.model.AuthenticationType;
 import com.zemnnni.auth.model.request.SignInRequest;
+import com.zemnnni.auth.model.request.TokenRequest;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +25,12 @@ public class Auth {
     public static Auth fromSignInRequest(SignInRequest signInRequest) {
         return Auth.builder()
                 .authenticationType(signInRequest.getAuthenticationType())
+                .build();
+    }
+
+    public static Auth fromTokenRequest(TokenRequest tokenRequest) {
+        return Auth.builder()
+
                 .build();
     }
 }

@@ -1,13 +1,12 @@
 package com.zemnnni.auth.service;
 
 import com.zemnnni.auth.entity.Auth;
-import com.zemnnni.auth.model.AuthenticationToken;
+import com.zemnnni.auth.model.token.AuthenticationToken;
 import com.zemnnni.auth.model.AuthenticationType;
 import com.zemnnni.auth.strategy.AuthenticationStrategy;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**

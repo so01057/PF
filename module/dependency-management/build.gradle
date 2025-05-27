@@ -63,5 +63,8 @@ dependencies {
         api "io.jsonwebtoken:jjwt-api:${jjwtVersion}"
         api "io.jsonwebtoken:jjwt-impl:${jjwtVersion}"
         api "io.jsonwebtoken:jjwt-jackson:${jjwtVersion}"
+
+        /* Oauth2 */
+        api "org.springframework.boot:spring-boot-starter-oauth2-client:${springBootVersion}"
     }
 }

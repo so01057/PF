@@ -1,8 +1,7 @@
 package com.zemnnni.auth.strategy;
 
 import com.zemnnni.auth.entity.Auth;
-import com.zemnnni.auth.model.AuthenticationToken;
-import com.zemnnni.auth.model.request.SignInRequest;
+import com.zemnnni.auth.model.token.AuthenticationToken;
 
 /**
  * @작성자 : DATA

@@ -1,11 +1,10 @@
 package com.zemnnni.auth.controller;
 
 import com.zemnnni.auth.entity.Auth;
-import com.zemnnni.auth.model.AuthenticationToken;
+import com.zemnnni.auth.model.request.TokenRequest;
+import com.zemnnni.auth.model.token.AuthenticationToken;
 import com.zemnnni.auth.model.request.SignInRequest;
-import com.zemnnni.auth.model.response.SignInSuccessResponse;
 import com.zemnnni.auth.service.AuthService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,4 +32,13 @@ public class AuthController {
 
         return ResponseEntity.ok(signInResult);
     }
+
+    @PostMapping("/token")
+    public ResponseEntity<AuthenticationToken> getToken(@RequestBody TokenRequest tokenRequest){
+        Auth auth = Auth.fromTokenRequest(tokenRequest);
+        AuthenticationToken authenticationToken = authService.getToken(auth);
+
+        return ResponseEntity.ok(authenticationToken);
+    }
+
 }

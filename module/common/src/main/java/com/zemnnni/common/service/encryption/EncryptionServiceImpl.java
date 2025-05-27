@@ -2,16 +2,13 @@ package com.zemnnni.common.service.encryption;
 
 import com.zemnnni.common.entity.encryption.Encryption;
 import com.zemnnni.common.entity.encryption.RSAKeyPair;
+import com.zemnnni.common.model.encryption.response.RSAPrivateKey;
 import com.zemnnni.common.model.encryption.response.RSAPublicKey;
 import com.zemnnni.common.repository.encryption.EncryptionRepository;
 import com.zemnnni.config.encryption.RSAUtil;
 import org.springframework.stereotype.Service;
 
-import java.security.KeyFactory;
-import java.security.KeyPair;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
+import java.security.*;
 import java.util.Base64;
 
 /**
@@ -58,23 +55,22 @@ public class EncryptionServiceImpl implements EncryptionService {
     }
 
     @Override
-    public String getRsaEncryptWithBase64(String plainText) {
+    public String getRsaEncryptWithBase64(String plainText) throws Exception {
         RSAPublicKey rsaPublicKey = encryptionRepository.getRsaPublicKey();
 
         String publicKeyWithBase64 = rsaPublicKey.getPublicKey();
 
-        byte[] keyBytes = Base64.getDecoder().decode(publicKeyWithBase64);
-        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(keyBytes);
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-
-        PublicKey publicKey = keyFactory.generatePublic(x509EncodedKeySpec);
-
-        byte[] encryptRsa = RSAUtil.encrypt(plainText,publicKey);
-        return "";
+        PublicKey publicKey = RSAUtil.getPublicKeyFromBase64(publicKeyWithBase64);
+        return RSAUtil.encryptFromBase64(plainText,publicKey);
     }
 
     @Override
-    public String getRsaDecryptWithBase64(String encryptedText) {
-        return "";
+    public String getRsaDecryptWithBase64(String encryptedText) throws Exception {
+        RSAPrivateKey rsaPrivateKey = encryptionRepository.getRsaPrivateKey();
+
+        String privateKeyWithBase64 = rsaPrivateKey.getPrivateKey();
+
+        PrivateKey privateKey = RSAUtil.getPrivateKeyFromBase64(privateKeyWithBase64);
+        return RSAUtil.decryptFromBase64(encryptedText,privateKey);
     }
 }

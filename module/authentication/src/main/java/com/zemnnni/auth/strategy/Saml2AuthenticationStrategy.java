@@ -2,7 +2,7 @@ package com.zemnnni.auth.strategy;
 
 import com.zemnnni.auth.config.annotation.AuthenticationStrategyType;
 import com.zemnnni.auth.entity.Auth;
-import com.zemnnni.auth.model.AuthenticationToken;
+import com.zemnnni.auth.model.token.AuthenticationToken;
 import com.zemnnni.auth.model.AuthenticationType;
 
 /**
