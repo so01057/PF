@@ -1,5 +1,8 @@
 package com.zemnnni.user.service;
 
+import com.zemnnni.user.entity.User;
+import com.zemnnni.user.model.ZemnnniUserDetails;
+
 /**
  * @작성자 : DATA
  * @파일명 : UserService

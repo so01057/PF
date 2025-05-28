@@ -26,3 +26,9 @@ authentication:
     refresh-token:
       ## refresh-token 만료시간 (예: 24시간 = 86400000 밀리초)
       expiration: 86400000
+
+#### RSA / Bcrypt
+encryption:
+  type:
+    user:
+      password: Bcrypt

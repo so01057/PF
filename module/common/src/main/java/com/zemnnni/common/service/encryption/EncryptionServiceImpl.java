@@ -5,7 +5,7 @@ import com.zemnnni.common.entity.encryption.RSAKeyPair;
 import com.zemnnni.common.model.encryption.response.RSAPrivateKey;
 import com.zemnnni.common.model.encryption.response.RSAPublicKey;
 import com.zemnnni.common.repository.encryption.EncryptionRepository;
-import com.zemnnni.config.encryption.RSAUtil;
+import com.zemnnni.util.encryption.RSAUtil;
 import org.springframework.stereotype.Service;
 
 import java.security.*;

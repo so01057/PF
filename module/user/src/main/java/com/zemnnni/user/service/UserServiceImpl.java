@@ -1,5 +1,7 @@
 package com.zemnnni.user.service;
 
+import com.zemnnni.user.entity.User;
+import com.zemnnni.user.model.ZemnnniUserDetails;
 import com.zemnnni.user.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +20,5 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
 }

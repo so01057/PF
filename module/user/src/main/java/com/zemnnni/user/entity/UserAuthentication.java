@@ -4,8 +4,8 @@ import lombok.*;
 
 /**
  * @작성자 : DATA
- * @파일명 : User
- * @작성일 : 2025-05-27
+ * @파일명 : UserAuthentication
+ * @작성일 : 2025-05-28
  * @설명 :
  */
 
@@ -14,7 +14,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class UserAuthentication {
     private String userId;
     private String userPassword;
 }
